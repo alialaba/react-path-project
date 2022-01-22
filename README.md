@@ -1,2 +1,2 @@
 # react-path-project
-thie projects comprises of react path projects
+This repos comprises of react path projects
