@@ -23,10 +23,21 @@ const App = () => {
       reminder: false
     }
   ])
+  //delete task function
+
+  const deleteTask = (id) => {
+    //filter method will return id that is not clicked
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      {tasks.length > 0 ?
+       <Tasks
+        onDelete={deleteTask}
+        tasks={tasks} />
+        : "No available task"
+      }
     </div>
   );
 }
