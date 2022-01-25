@@ -24,18 +24,24 @@ const App = () => {
     }
   ])
   //delete task function
-
   const deleteTask = (id) => {
     //filter method will return id that is not clicked
-    setTasks(tasks.filter((task) => task.id !== id))
+    setTasks(tasks.filter((task) => task.id !== id));
   }
+
+  //toggle reminder function
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task))
+  }
+
   return (
     <div className="container">
       <Header />
       {tasks.length > 0 ?
-       <Tasks
-        onDelete={deleteTask}
-        tasks={tasks} />
+        <Tasks
+          onDelete={deleteTask}
+          onToggle={toggleReminder}
+          tasks={tasks} />
         : "No available task"
       }
     </div>
