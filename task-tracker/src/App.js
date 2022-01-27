@@ -4,6 +4,7 @@ import Tasks from "./components/Tasks";
 import AddNew from "./components/AddNew";
 
 const App = () => {
+  const [showOnAdd, setShowOnAdd] = useState(false);
   const [tasks, setTasks] = useState([
     // {
     //   id: 1,
@@ -46,8 +47,9 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
-      <AddNew onAdd={addTask} />
+      {/* onAdd  set to the oppsite of the setShowAdd value*/}
+      <Header onAdd={() => setShowOnAdd(!showOnAdd)} />
+      {showOnAdd && <AddNew onAdd={addTask} />}
       {tasks.length > 0 ?
         <Tasks
           onDelete={deleteTask}

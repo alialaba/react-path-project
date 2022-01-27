@@ -20,7 +20,7 @@ const AddNew = ({ onAdd }) => {
 
     }
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} >
             <div className="form-control">
                 <label>Task</label>
                 <input
