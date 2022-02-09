@@ -11,6 +11,12 @@
       "text": "School Meeting",
       "day": "Jan 15th at 11am",
       " reminder": false
+    },
+    {
+      "text": "Promise",
+      "day": "weds 10am",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
