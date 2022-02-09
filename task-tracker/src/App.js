@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddNew from "./components/AddNew";
@@ -6,6 +6,24 @@ import AddNew from "./components/AddNew";
 const App = () => {
   const [showOnAdd, setShowOnAdd] = useState(false);
   const [tasks, setTasks] = useState([])
+
+  //when ever page loads
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const taskFromServer = await fetchTasks();
+      setTasks(taskFromServer);
+    }
+    getTasks();
+  }, []);
+
+  //fetch task
+  const fetchTasks = async () => {
+    const res = await fetch("http://localhost:5000/tasks");
+    const data = await res.json();
+    // console.log(data);
+    return data
+  }
 
   //add task
 
@@ -16,7 +34,10 @@ const App = () => {
   }
 
   //delete task function
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "DELETE",
+    })
     //filter method will return id that is not clicked
     setTasks(tasks.filter((task) => task.id !== id));
   }
