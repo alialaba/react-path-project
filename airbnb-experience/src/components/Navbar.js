@@ -1,7 +1,9 @@
+
 const Navbar = () => {
     return (
-        <nav>
-            <img src="" alt="airbnb-logo" />
+
+        <nav className="nav">
+            <img src={process.env.PUBLIC_URL + "/images/airbnb.png"} alt="logo" />
         </nav>
     );
 }
