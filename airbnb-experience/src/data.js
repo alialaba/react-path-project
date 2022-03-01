@@ -6,7 +6,7 @@ export default [
         price: 136,
         coverImg: "katie-zaferes.png",
         stats: {
-            rating: 5.0,
+            rating: "5.0",
             reviewCount: 6
         },
         location: "Online",
@@ -19,7 +19,7 @@ export default [
         price: 125,
         coverImg: "wedding-photography.png",
         stats: {
-            rating: 5.0,
+            rating: "5.0",
             reviewCount: 30
         },
         location: "Online",
@@ -32,7 +32,7 @@ export default [
         price: 50,
         coverImg: "mountain-bike.png",
         stats: {
-            rating: 4.8,
+            rating: "4.8",
             reviewCount: 2
         },
         location: "Norway",
