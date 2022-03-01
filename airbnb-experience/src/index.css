@@ -19,6 +19,13 @@ img {
   background-color: white;
   padding:  1rem ;
   box-shadow: 0px 2.9825618267059326px 7.456404209136963px 0px #0000001A;
-
-  
+}
+section{
+  padding: 1.5rem;
+}
+.title{
+  font-size: 2rem;
+}
+.text{
+  font-size: .9rem;
 }
