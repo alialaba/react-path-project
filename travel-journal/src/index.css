@@ -10,3 +10,16 @@ img,video,svg{
   display:block;
   max-width:100%;
 }
+.nav{
+  background-color: #F55A5A;
+  display:flex;
+  align-items: center;
+  gap: .9rem;
+  justify-content: center;
+  color:#fff;
+  padding: 1.3rem;
+}
+.nav__text{
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
