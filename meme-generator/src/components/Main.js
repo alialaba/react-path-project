@@ -1,17 +1,17 @@
 import Logo from "../logo.png";
-const Main = () => {
+const Main = ({ OnClick, meme }) => {
     return (
         <section>
             <div className="container">
                 <div className="form">
                     <div className="form--wrap">
-                        <input className="form--input" type="text" placeholder="Shut up" />
-                        <input className="form--input" type="text" placeholder="and take my money" />
+                        <input className="form--input" type="text" placeholder="Top Text" />
+                        <input className="form--input" type="text" placeholder="Bottom Text" />
                     </div>
-                    <button className="form--btn">Get a new meme image  🖼</button>
+                    <button onClick={OnClick} className="form--btn">Get a new meme image  🖼</button>
 
                 </div>
-                <img src={Logo} />
+                <img className="meme-img" src={meme.randomImage} alt="meme image" />
             </div>
 
         </section>

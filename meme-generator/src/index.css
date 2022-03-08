@@ -21,7 +21,7 @@ a{
   background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
 color: #fff;
   padding:0 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 .nav--brand{
   display: flex;
@@ -34,7 +34,7 @@ color: #fff;
 .nav--name{
   color: #fff;
   text-transform: capitalize;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .container{
   width: 90%;
@@ -43,7 +43,7 @@ color: #fff;
 
 }
 .form{
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 .form--wrap{
   display: flex;
@@ -57,6 +57,8 @@ color: #fff;
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
+
+
 .form--btn{
   border: none;
   width:100%;
@@ -65,4 +67,8 @@ color: #fff;
 font-size: 1.2rem;
   padding: 1rem 2rem;
 border-radius: 5px;
+cursor: pointer;
+}
+.meme-img{
+  width: 100%;
 }
