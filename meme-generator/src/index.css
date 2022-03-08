@@ -11,3 +11,58 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a{
+  text-decoration: none;
+}
+.nav{
+  display: flex;  
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+color: #fff;
+  padding:0 1rem;
+  margin-bottom: 3rem;
+}
+.nav--brand{
+  display: flex;
+  align-items: center;
+}
+.nav--logo{
+  width:35px;
+  margin-right: 1rem;
+}
+.nav--name{
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+.container{
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+
+}
+.form{
+  margin-bottom: 3rem;
+}
+.form--wrap{
+  display: flex;
+  column-gap: 1rem;
+}
+.form--input{
+  width: 100%;
+  padding: .8rem 1.6rem;
+  border-radius: 5px;
+  border: 1px solid #D5D4D8;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.form--btn{
+  border: none;
+  width:100%;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+color: #fff;
+font-size: 1.2rem;
+  padding: 1rem 2rem;
+border-radius: 5px;
+}

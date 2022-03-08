@@ -1,8 +1,10 @@
-
+import Navbar from "./components/Navbar";
+import Main from "./components/Main";
 function App() {
   return (
-    <div className="App">
-
+    <div className="meme-app">
+      <Navbar />
+      <Main />
     </div>
   );
 }
