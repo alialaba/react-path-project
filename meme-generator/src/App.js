@@ -14,6 +14,7 @@ function App() {
   })
 
   const [allMemeImages, setAllMemeImages] = useState(memeData)
+  //function that generate meme images randomly
   const getMemeImage = () => {
     //variable that declare the memedata
     const memeArrays = allMemeImages.data.memes;
@@ -27,18 +28,28 @@ function App() {
         randomImage: url
       }
     })
-    console.log(url)
-    // console.log(memeArrays, randomNumber);
+    // console.log(url)
+    // console.log(memeArrays, randomNumber)
+  }
+
+
+  const handleChange = (event) => {
+    //checking the name/ value attr
+    const { name, value } = event.target;
+    setMeme(prevMeme => ({
+      ...prevMeme,
+      [name]: value
+    }))
 
   }
+
   return (
     <div className="meme-app">
       <Navbar />
       <Main
-        OnClick={getMemeImage}
+        handleOnClick={getMemeImage}
+        handleOnChange={handleChange}
         meme={meme}
-
-
       />
     </div>
   );
