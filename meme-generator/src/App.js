@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
-import memeData from "./memeData";
-import { useState } from "react"
+
+import { useState, useEffect } from "react"
 function App() {
   //get meme image function
   const [meme, setMeme] = useState({
@@ -13,15 +13,21 @@ function App() {
 
   })
 
-  const [allMemeImages, setAllMemeImages] = useState(memeData)
+  const [allMemes, setAllMemes] = useState([])
+  console.log("Component rendered")
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(res => res.json())
+      //get the datas from API to our useState
+      .then(data => setAllMemes(data.data.memes))
+
+  }, [])
+
   //function that generate meme images randomly
   const getMemeImage = () => {
-    //variable that declare the memedata
-    const memeArrays = allMemeImages.data.memes;
-
     //variable that declare the random number
-    const randomNumber = Math.floor(Math.random() * memeArrays.length)
-    let url = memeArrays[randomNumber].url;
+    const randomNumber = Math.floor(Math.random() * allMemes.length)
+    let url = allMemes[randomNumber].url;
     setMeme(prevMeme => {
       return {
         ...prevMeme,
