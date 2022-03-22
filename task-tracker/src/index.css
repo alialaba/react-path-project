@@ -105,5 +105,56 @@ body {
   flex: 2;
   height: 20px;
 }
+/* dark mode toggler */
+.toggler{
+  display: flex;
+  align-items: center;
+}
+.toggler > * + *{
+  margin: 0 0 0 5px;
+}
+.toggler--slider{
+width: 25px;
+height: 15px;
+background-color: #2B283A;
+border-radius: 2rem;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+/* box-sizing: content-box; */
+}
+.toggler--slider--circle{
+  width: 13px;
+  height: 13px;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+}
+header.dark .toggler--slider{
+  background-color: #F5F5F5;
+}
+header.dark .toggler--slider--circle {
+    background-color: black;
+}
+
+.toggler--light {
+    color: #2B283A;
+}
+
+header.dark .toggler--light {
+    color: #918E9B;
+}
+
+.toggler--dark {
+    color: #D5D4D8;
+}
+
+header.dark .toggler-dark {
+    color: #FFFFFF;
+}
+
+header.dark .toggler--slider {
+    justify-content: flex-end;
+}
 
 
