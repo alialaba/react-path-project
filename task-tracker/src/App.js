@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+
+
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddNew from "./components/AddNew";
@@ -33,8 +35,7 @@ const App = () => {
     return data
   }
 
-  //add task
-
+  //Add task
   const addTask = async (task) => {
     const res = await fetch("http://localhost:5000/tasks", {
       method: "POST",
@@ -47,9 +48,6 @@ const App = () => {
     const data = await res.json();
     setTasks([...tasks, data])
 
-    // const id = Math.floor(Math.random() * 10000) + 1;
-    // const newTask = { id, ...task }
-    // setTasks([...tasks, newTask]);
   }
 
   //delete task function
@@ -81,7 +79,7 @@ const App = () => {
   return (
     <div className="container">
       {/* onAdd  set to the oppsite of the setShowAdd value*/}
-      <Header onAdd={() => setShowOnAdd(!showOnAdd)} />
+      <Header onAdd={() => setShowOnAdd(!showOnAdd)} onShow={showOnAdd} />
       {showOnAdd && <AddNew onAdd={addTask} />}
       {tasks.length > 0 ?
         <Tasks
