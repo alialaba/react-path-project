@@ -5,13 +5,19 @@
       "text": "School Meeting",
       "day": "Jan 15th at 11am",
       " reminder": false,
-      "reminder": true
+      "reminder": false
     },
     {
       "text": "Promise",
       "day": "weds 10am",
       "reminder": true,
       "id": 4
+    },
+    {
+      "text": "Doctor mentorship",
+      "day": "11th mar at 11pm",
+      "reminder": true,
+      "id": 5
     }
   ]
 }

@@ -8,9 +8,9 @@ import AddNew from "./components/AddNew";
 const App = () => {
   const [showOnAdd, setShowOnAdd] = useState(false);
   const [tasks, setTasks] = useState([])
+  const [darkMode, setDarkMode] = useState(false);
 
   //when ever page loads
-
   useEffect(() => {
     const getTasks = async () => {
       const taskFromServer = await fetchTasks();
@@ -19,6 +19,10 @@ const App = () => {
     getTasks();
   }, []);
 
+  //toggle Dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(prevDarkMode => !prevDarkMode);
+  }
   //fetch tasks
   const fetchTasks = async () => {
     const res = await fetch("http://localhost:5000/tasks");
@@ -77,15 +81,22 @@ const App = () => {
   }
 
   return (
-    <div className="container">
+    <div className={`container ${darkMode ? "dark" : ""}`}>
       {/* onAdd  set to the oppsite of the setShowAdd value*/}
-      <Header onAdd={() => setShowOnAdd(!showOnAdd)} onShow={showOnAdd} />
+      <Header
+        onAdd={() => setShowOnAdd(!showOnAdd)}
+        onShow={showOnAdd}
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
       {showOnAdd && <AddNew onAdd={addTask} />}
       {tasks.length > 0 ?
         <Tasks
           onDelete={deleteTask}
           onToggle={toggleReminder}
-          tasks={tasks} />
+          tasks={tasks}
+          darkMode={darkMode}
+        />
         : "No available task"
       }
     </div>

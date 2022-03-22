@@ -1,5 +1,5 @@
 import Task from "./Task";
-const Tasks = ({ tasks, onDelete, onToggle }) => {
+const Tasks = ({ tasks, onDelete, onToggle, darkMode }) => {
     return (
         <div>
             {tasks.map((task) =>
@@ -7,7 +7,9 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
                     onDelete={onDelete}
                     onToggle={onToggle}
                     key={task.id}
-                    task={task} />)
+                    task={task}
+                    darkMode={darkMode}
+                />)
             }
         </div >
     );
