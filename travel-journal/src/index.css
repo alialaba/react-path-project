@@ -23,3 +23,41 @@ img,video,svg{
   text-transform: capitalize;
   font-size: 1.3rem;
 }
+section{
+  padding: 2rem;
+}
+.card{
+  box-shadow:2px 3px 5px rgba(0,0,0,.4);
+  border-radius: 4px;
+  padding: 2rem 1rem;
+  display:flex;
+  align-items: center;
+  gap:1rem;
+}
+.card__header{
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
+.card__icon{
+  height: 15px;
+}
+.card__date{
+  margin-bottom: 1rem;
+}
+.card__title{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.card__date--start,
+.card__date--end{
+  margin-right: .9rem;
+  font-weight:700;
+}
+.card__header{
+  /* margin-bottom: 1rem; */
+}
+
+p,h1,h2,h3,h4,h5,h6{
+  overflow-wrap: break-word;
+}
