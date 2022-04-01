@@ -17,6 +17,12 @@ const App = () => {
         }
         setNotes(prevNote => [newNote, ...prevNote]);
         setCurrentNoteId(newNote.id)
+    }
+
+    function findCurrentNote() {
+        return notes.find(note => {
+            return note.id === currentNoteId;
+        }) || notes[0]
 
     }
 
@@ -38,6 +44,8 @@ const App = () => {
                     <Sidebar
                         notes={notes}
                         newNote={createNote}
+                        setCurrentNoteId={setCurrentNoteId}
+                        currentNote={findCurrentNote()}
 
                     />
                     <Editor />

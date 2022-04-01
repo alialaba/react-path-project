@@ -1,8 +1,9 @@
-const Sidebar = ({ notes, newNote }) => {
+const Sidebar = ({ notes, newNote, setCurrentNoteId, currentNote }) => {
     const noteElements = notes.map((note, index) => (
+        // setCurrentNoteId(note.id) was used to identify id of the note created when clicked
         <div key={note.id}>
-            <div className="title">
-                <h5>Note {index + 1} </h5>
+            <div className={`title ${note.id === currentNote.id ? "selected-one" : ""}`} onClick={() => setCurrentNoteId(note.id)} >
+                <h5 className="text-snippet">Note {index + 1} </h5>
             </div>
         </div>
     ))
