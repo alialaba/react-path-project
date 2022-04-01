@@ -18,7 +18,12 @@ const App = () => {
         setNotes(prevNote => [newNote, ...prevNote]);
         setCurrentNoteId(newNote.id)
     }
-
+    const updateNote = (text) => {
+        setNotes(oldNotes => oldNotes.map((oldNote) => {
+            return oldNote.id === currentNoteId ? { ...oldNote, body: text } : oldNote;
+        }
+        ))
+    }
     function findCurrentNote() {
         return notes.find(note => {
             return note.id === currentNoteId;
@@ -48,7 +53,10 @@ const App = () => {
                         currentNote={findCurrentNote()}
 
                     />
-                    <Editor />
+                    <Editor
+                        currentNote={findCurrentNote()}
+                        updateNote={updateNote}
+                    />
                 </Split>
                 :
                 <section className='no-notes'>
