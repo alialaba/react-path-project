@@ -1,16 +1,8 @@
-import { useState } from "react";
-import ReactMde from "react-mde";
-
-const Editor = ({ newNote }) => {
-    const [selectedTab, setSelectedTab] = useState("Write")
+const Editor = () => {
     return (
         <section>
-            <ReactMde>
-                value={newNote.body}
-
-            </ReactMde>
-
+            Editor
         </section>
     );
 }
-export default Editor
+export default Editor;

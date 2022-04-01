@@ -1,45 +1,26 @@
-import { useState } from "react";
-import Sidebar from "./components/Sidebar";
+import { useState, useEffect } from 'react';
 import Editor from "./components/Editor";
-import Split from 'react-split';
-import ReactMde from "react-mde";
-import { nanoid } from "nanoid";
+import Sidebar from "./components/Sidebar"
+import Split from 'react-split'
 
 const App = () => {
-  const [notes, setNotes] = useState([]);
-  const [currentNoteId, setCurrentNoteId] = useState(
-    (notes[0] && notes[0].id) || ""
-  )
-
-  //function that create new note obj
-  const createNewNote = () => {
-    const newNote = {
-      id: nanoid(),
-      type: "# Type your markdown note's title here "
-    }
-    setNotes(prevNotes => [newNote, ...prevNotes]);
-    setCurrentNoteId(newNote.id)
-  }
-
-  return (
-    <main>
-      <Split
-        sizes={[20, 80]}
-        direction="horizontal"
-        className="split"
-      >
-        <Sidebar
-          notes={notes}
-          newNote={createNewNote}
-
-        />
-        <Editor
-          newNote={createNewNote}
-        />
-
-      </Split>
-
-    </main>
-  );
+    return (
+        <main>
+            <Split
+                sizes={[25, 75]}
+                minSize={100}
+                expandToMin={false}
+                gutterSize={10}
+                gutterAlign="center"
+                snapOffset={30}
+                dragInterval={1}
+                direction="horizontal"
+                cursor="col-resize"
+            >
+                <Sidebar />
+                <Editor />
+            </Split>
+        </main>
+    );
 }
 export default App;
