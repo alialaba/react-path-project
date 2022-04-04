@@ -6,9 +6,13 @@ import { nanoid } from 'nanoid'
 
 
 const App = () => {
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState(() => JSON.parse(localStorage.getItem("notes")) || []);
     const [currentNoteId, setCurrentNoteId] = useState(
         (notes[0] && notes[0].id) || "");
+
+    useEffect(() => {
+        localStorage.setItem("notes", JSON.stringify(notes))
+    }, [notes])
 
     const createNote = () => {
         const newNote = {

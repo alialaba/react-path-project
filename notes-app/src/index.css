@@ -38,12 +38,16 @@ code {
   cursor: pointer;
   font-size: 1.5rem;
 }
+.text-snippet{
+  padding: 0 1rem;
+}
 .selected-one{
   background-color: blue;
 }
 .selected-one .text-snippet {
     color: white;
     font-weight: 700;
+    
 }
 
 button:focus{
