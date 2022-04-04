@@ -12,7 +12,7 @@ const App = () => {
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes))
-        console.log(notes[0].body.split("\n"));
+
     }, [notes])
 
     const createNote = () => {
@@ -24,10 +24,37 @@ const App = () => {
         setCurrentNoteId(newNote.id)
     }
     const updateNote = (text) => {
-        setNotes(oldNotes => oldNotes.map((oldNote) => {
-            return oldNote.id === currentNoteId ? { ...oldNote, body: text } : oldNote;
-        }
-        ))
+        setNotes(oldNotes => {
+            let newArr = [];
+            for (let i = 0; i < oldNotes.length; i++) {
+                // move edited note to the top using psuedocode belloe
+                //create a new empty array
+                // Loop over the original array
+                // if the id matches
+                // put the updated note at the 
+                // beginning of the new array
+                // else
+                // push the old note to the end
+                // of the new array
+                // return the new array
+
+                let oldNote = oldNotes[i];
+                if (oldNote.id === currentNoteId) {
+                    newArr.unshift({
+                        ...oldNote, body: text
+                    });
+                } else {
+                    newArr.push(oldNote)
+                }
+
+            }
+            return newArr;
+        })
+        //old code 
+        // setNotes(oldNotes => oldNotes.map((oldNote) => {
+        //     return oldNote.id === currentNoteId ? { ...oldNote, body: text } : oldNote;
+        // }
+        // ))
     }
     function findCurrentNote() {
         return notes.find(note => {
