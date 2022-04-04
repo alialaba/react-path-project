@@ -3,7 +3,7 @@ const Sidebar = ({ notes, newNote, setCurrentNoteId, currentNote }) => {
         // setCurrentNoteId(note.id) was used to identify id of the note created when clicked
         <div key={note.id}>
             <div className={`title ${note.id === currentNote.id ? "selected-one" : ""}`} onClick={() => setCurrentNoteId(note.id)} >
-                <h5 className="text-snippet">Note {index + 1} </h5>
+                <h5 className="text-snippet"> {note.body.split("\n")[0]} </h5>
             </div>
         </div>
     ))

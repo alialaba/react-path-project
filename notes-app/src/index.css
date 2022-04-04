@@ -39,7 +39,14 @@ code {
   font-size: 1.5rem;
 }
 .text-snippet{
-  padding: 0 1rem;
+padding-inline-start: 5px;
+font-size: 0.8rem;
+font-weight: 400;
+line-height: 1.2rem;
+color: #4A4E74;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 .selected-one{
   background-color: blue;
