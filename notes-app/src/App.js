@@ -62,7 +62,11 @@ const App = () => {
         }) || notes[0]
 
     }
+    const deleteNote = (event, noteId) => {
+        event.stopPropagation();
+        setNotes(allNotes => allNotes.filter(note => note.id !== noteId))
 
+    }
     return (
         <main>
             {notes.length > 0 ?
@@ -83,6 +87,7 @@ const App = () => {
                         newNote={createNote}
                         setCurrentNoteId={setCurrentNoteId}
                         currentNote={findCurrentNote()}
+                        deleteNote={deleteNote}
 
                     />
                     <Editor
