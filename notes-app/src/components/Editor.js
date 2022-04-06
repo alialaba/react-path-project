@@ -13,7 +13,7 @@ const Editor = ({ currentNote, updateNote }) => {
 
 
     return (
-        <section>
+        <section className="pane editor">
             <ReactMde
                 value={currentNote.body}
                 onChange={updateNote}

@@ -10,10 +10,13 @@ const App = () => {
     const [currentNoteId, setCurrentNoteId] = useState(
         (notes[0] && notes[0].id) || "");
 
+    const [darkMode, setDarkMode] = useState(true);
+
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes))
 
     }, [notes])
+
 
     const createNote = () => {
         const newNote = {
@@ -67,8 +70,11 @@ const App = () => {
         setNotes(allNotes => allNotes.filter(note => note.id !== noteId))
 
     }
+    const switchMode = () => {
+        setDarkMode(prevMode => !prevMode)
+    }
     return (
-        <main>
+        <main className={`main ${darkMode ? "dark" : ""}`}>
             {notes.length > 0 ?
                 < Split
                     sizes={[20, 80]}
@@ -88,11 +94,14 @@ const App = () => {
                         setCurrentNoteId={setCurrentNoteId}
                         currentNote={findCurrentNote()}
                         deleteNote={deleteNote}
+                        switchMode={switchMode}
+                        darkMode={darkMode}
 
                     />
                     <Editor
                         currentNote={findCurrentNote()}
                         updateNote={updateNote}
+                    // darkMode={darkMode}
                     />
                 </Split>
                 :
