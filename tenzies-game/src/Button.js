@@ -1,7 +1,7 @@
 const Button = (props) => {
     return (
         <div className="flex">
-            <button className="btn">{props.text}</button>
+            <button className="btn" onClick={props.onClick}>{props.text}</button>
         </div>
     );
 }
