@@ -17,16 +17,25 @@ function App() {
         id: nanoid()
       });
     }
-    // console.log(randomArr)
     return randomArr;
   }
   //Roll Dice
   function rollDice() {
-    setDice(allNewDice());
+    setDice(oldDice => oldDice.map(die => {
+      // if the isHeld == true will be return and the false will recreate it obj
+      return die.isHeld ?
+        die :
+        {
+          value: Math.ceil(Math.random() * 6),
+          isHeld: false,
+          id: nanoid()
+        }
+    }));
   }
 
   function holdDice(id) {
     setDice(oldDice => oldDice.map(die => {
+      //if the dice === id clicked return obj but change the isHeld value to false if not return obj
       return die.id === id ?
         { ...die, isHeld: !die.isHeld } : die
     }))
