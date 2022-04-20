@@ -38,12 +38,17 @@ function App() {
   }
   //Roll Dice
   function rollDice() {
-    setDice(oldDice => oldDice.map(die => {
-      // if the isHeld == true will be return and the false will recreate it obj
-      return die.isHeld ?
-        die :
-        generateNewDice()
-    }));
+    if (!tenzies) {
+      setDice(oldDice => oldDice.map(die => {
+        // if the isHeld == true will be return and the false will recreate it obj
+        return die.isHeld ?
+          die :
+          generateNewDice()
+      }));
+    } else {
+      setTenzies(false)
+      setDice(allNewDice)
+    }
   }
 
   function holdDice(id) {
