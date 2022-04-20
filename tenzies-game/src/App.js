@@ -1,21 +1,38 @@
-import { useState } from "react";
-import { nanoid } from "nanoid"
+import { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
+import Confetti from 'react-confetti'
+
 
 import Die from "./Die";
 import Button from "./Button";
 
 function App() {
   const [dice, setDice] = useState(allNewDice());
+  const [tenzies, setTenzies] = useState(false);
 
+  useEffect(() => {
+    const allDiceHeld = dice.every(die => die.isHeld);
+    const firstValue = dice[0].value;
+    const allSameDice = dice.every(die => die.value === firstValue)
+    console.log(allDiceHeld, allSameDice);
+    if (allDiceHeld && allSameDice) {
+      setTenzies(true);
+      console.log("You Won!");
+    }
+  }, [dice])
+
+  function generateNewDice() {
+    return {
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      id: nanoid()
+    }
+  }
   //random dice
   function allNewDice() {
     let randomArr = [];
     for (let i = 0; i < 10; i++) {
-      randomArr.push({
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false,
-        id: nanoid()
-      });
+      randomArr.push(generateNewDice());
     }
     return randomArr;
   }
@@ -25,11 +42,7 @@ function App() {
       // if the isHeld == true will be return and the false will recreate it obj
       return die.isHeld ?
         die :
-        {
-          value: Math.ceil(Math.random() * 6),
-          isHeld: false,
-          id: nanoid()
-        }
+        generateNewDice()
     }));
   }
 
@@ -49,7 +62,9 @@ function App() {
       holdDice={() => holdDice(die.id)} />
   })
   return (
+
     <main>
+      {tenzies && <Confetti />}
       <div className="wrapper">
         <div className="center">
           <h2>Tenzies</h2>
@@ -58,9 +73,9 @@ function App() {
         <div className="grid">
           {diceElements}
         </div>
-        <Button text="Roll" onClick={rollDice} />
+        <Button text={tenzies ? "New game" : "Roll"} onClick={rollDice} />
       </div>
-    </main>
+    </main >
   );
 }
 
