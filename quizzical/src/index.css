@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+  background-color: #F5F7FB;
+  margin: 2rem auto;
+  max-width: 550px;
+  height: 550px;
+  width: 90%;
+  border-radius: 4px;
+  position: relative;
+}
+.center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.starter__content{
+}
+.blob-1{
+position: absolute;
+left: 71%;
+bottom: 74%;
+
+}
+.blob-2{
+  position: absolute;
+  right: 73%;
+  top: 78%;
+}
+.blob-s1{
+  position: absolute;
+  left: 77%;
+  bottom: 76%;
+}
+.blob-s2 {
+  position: absolute;
+  right: 88%;
+  top: 88%;
+}
+.starter__content h2{
+  font-size: 2rem;
+}
+.starter__content p{
+  font-size: 1rem
+}
+.question__content{
+  padding:2rem 5rem;
+}
+.answers > * + *{
+  margin-left: 1rem;
+}
+.btn{
+  outline: none;
+  border: none;
+  background-color: #4D5B9E;
+  color: #fff;
+  padding: .9rem 1.8rem;
+  border-radius: 5px;
+  font-size: .9rem;
+  cursor: pointer;
+}
