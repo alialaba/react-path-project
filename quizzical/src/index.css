@@ -15,16 +15,16 @@ code {
   background-color: #F5F7FB;
   margin: 2rem auto;
   max-width: 550px;
-  height: 550px;
-  width: 90%;
   border-radius: 4px;
   position: relative;
 }
-.center{
+.wrap-center{
   display:flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 550px;
+  width: 90%;
 }
 .starter__content{
 }
@@ -55,19 +55,44 @@ bottom: 74%;
 .starter__content p{
   font-size: 1rem
 }
-.question__content{
-  padding:2rem 5rem;
+.quiz-wrapper{
+border-bottom: 1px solid #DBDEF0;
+  margin-bottom: 1rem;
+}
+.questions__content{
+  padding:2rem 4rem;
+}
+.answers{
+  margin-bottom: 1rem;
 }
 .answers > * + *{
   margin-left: 1rem;
 }
+
 .btn{
+  display: inline-block;
+  margin: 5px;
+  background: none;
   outline: none;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: .9rem;
+  margin-bottom: 1rem;
+  text-transform: lowercase;
+}
+.btn-primary{
   background-color: #4D5B9E;
   color: #fff;
   padding: .9rem 1.8rem;
-  border-radius: 5px;
-  font-size: .9rem;
+}
+.btn-outline{
+  background-color: transparent;
+  border: 1px solid #4D5B9E;
+  padding: .6rem;
   cursor: pointer;
+  font-size: .9rem;
+  margin-bottom: 1rem;
+  text-transform: lowercase;
+  list-style:none;
 }

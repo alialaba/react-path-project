@@ -1,6 +1,6 @@
 const Button = (props) => {
     return (
-        <button className="btn" onClick={props.onClick}>{props.text}</button>
+        <button className={`btn ${props.styles}`} onClick={props.onClick}>{props.text}</button>
     );
 }
 export default Button;
