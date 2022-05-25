@@ -1,6 +1,7 @@
 import Button from "./Button"
 // import Question from "./Question";
-const Questions = ({ quizs }) => {
+const Questions = ({ quizs, onSelected }) => {
+
     return (
         <div className="container">
             <svg className="blob-s1" width="126" height="131" viewBox="0 0 126 131" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +12,9 @@ const Questions = ({ quizs }) => {
                 {quizs.map((quiz) =>
                     <div className="quiz-wrapper" key={quiz.question}>
                         <p>{quiz.question}</p>
-                        {quiz.answers.map((ans) => <li className="btn-outline" key={ans.value}>{ans.value}</li>)}
+                        {quiz.answers.map((ans) => <li className={`btn-outline ${ans.isSelected ? "selected-answer" : ""}`}
+                            onClick={() => onSelected(ans.value)}
+                            key={ans.value}>{ans.value}</li>)}
 
                     </div>)}
 

@@ -96,3 +96,6 @@ border-bottom: 1px solid #DBDEF0;
   text-transform: lowercase;
   list-style:none;
 }
+.selected-answer{
+  background-color:#DBDEF0;
+}

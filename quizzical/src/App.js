@@ -10,14 +10,14 @@ function App() {
   useEffect(() => {
     const loadData = async () => {
       const response = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
-      console.log(response)
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       const newResult = [];
       data.results.map((result) => {
         let shuffledAnswers = shuffleArrays([decodeText(result.correct_answer), ...result.incorrect_answers.map(ans => decodeText(ans))])//use map on incorrect_answers property to use decodeText fn
+        //allocate an obj properties key(value,isSelected , class) to each answers in each question.
         let answers = shuffledAnswers.map((ans) => ({ value: ans, isSelected: false, class: "" }));
-        console.log(answers);
+        // console.log(answers);
         newResult.push({
           question: decodeText(result.question),
           answers: answers,
@@ -31,12 +31,42 @@ function App() {
 
   }, []);
 
+  //function that handle state that makes isSelected attribute of various question to match option selected
+
+  function handleClick(ansValue) {
+    console.log(ansValue, 'clicked');
+    setQuizs(stateQuiz => {
+      const newQuestion = [];
+      for (const quiz in stateQuiz) {
+        const currentQuiz = stateQuiz[quiz]
+        console.log(currentQuiz);
+        //loop through currentQuiz.answers.length
+        for (let i = 0; i < currentQuiz.answers.length; i++) {
+          console.log(currentQuiz.answers[i]);
+          //check if currentQuiz.answers.value is equal to clicked answer value
+          if (currentQuiz.answers[i].value === ansValue) {
+            for (let i = 0; i < currentQuiz.answers.length; i++) {
+              currentQuiz.answers[i].isSelected = false;
+            }
+
+            currentQuiz.answers[i].isSelected = !currentQuiz.answers[i].isSelected;
+          }
+        }
+        newQuestion.push(currentQuiz)
+      }
+      return newQuestion;
+    })
+  }
+
+  //function that decode encoded html entities
   function decodeText(txt) {
     const text = document.createElement("textarea");
     text.innerHTML = txt;
     return text.value;
   }
 
+
+  //function that shuffle array randomly
   function shuffleArrays(array) {
     let currentIndex = array.length, randomIndex;
 
@@ -62,9 +92,7 @@ function App() {
   return (
     <div className="App">
       {!startQuiz ? <Starter onStart={onStart} /> :
-        <Questions
-          quizs={quizs}
-        />}
+        <Questions quizs={quizs} onSelected={handleClick} />}
     </div>
   );
 }
