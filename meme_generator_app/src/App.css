@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: #fff;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.app-container{
+  max-width: 600px;
+  width: 85%;
+  margin: 0 auto;
+}
+.form{
+  padding: 20px;
+  /* display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 18px; */
+}
+.form-input{
+  padding: 12px;
+  font-size: .9rem;
+  border-radius: 5px;
+  border: 1px solid #D5D4D8;
+  margin-bottom: 20px;
+  width: 80%;
+  outline: none;
+}
+
+
+.form-field{
+  display: grid;
+  grid-template: 50px 50px / 1fr 1fr;
+  gap: 18px;
+}
+
+.btn{
+  border-radius: 5px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* https://api.imgflip.com/get_memes */
