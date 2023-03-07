@@ -1,8 +1,8 @@
 export function Header(){
     return(
         <header className="header">
-            <h3>Meme generator</h3>
-            <p>React project</p>
+            <h3 className="header__title">Meme generator</h3>
+            <p className="header__text">React project</p>
         </header>
             );
 }

@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+/* HEADER SECTION */
 
 .header{
   display: flex;
@@ -11,18 +9,25 @@
   padding: 0 20px;
   margin-bottom: 20px;
 }
+
+/* CONTAINER STYLE */
 .app-container{
   max-width: 600px;
   width: 85%;
   margin: 0 auto;
 }
+
+/*FORM STYLES */
 .form{
   padding: 20px;
-  /* display: grid;
-  grid-template: 40px 40px / 1fr 1fr;
-  gap: 18px; */
 }
-.form-input{
+
+.form-field{
+  display: grid;
+  grid-template: 50px 50px / 1fr 1fr;
+  gap: 18px;
+}
+.form-field__input{
   padding: 12px;
   font-size: .9rem;
   border-radius: 5px;
@@ -30,13 +35,6 @@
   margin-bottom: 20px;
   width: 80%;
   outline: none;
-}
-
-
-.form-field{
-  display: grid;
-  grid-template: 50px 50px / 1fr 1fr;
-  gap: 18px;
 }
 
 .btn{
@@ -51,17 +49,16 @@
     cursor: pointer;
 }
 
-/* https://api.imgflip.com/get_memes */
-
+/*MEME STYLES */
 .meme{
   position: relative;
 }
-.meme-img{
+.meme__img{
   max-width: 100%;
   border-radius: 5px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.16);
 }
-.meme-text {
+.meme__text {
   position: absolute;
   width: 80%;
     text-align: center;
@@ -85,11 +82,9 @@
         -2px 0 0 #000,
         2px 2px 5px #000;
 }
- .top{
+ .meme--top{
  top: 0;
 }
-
-
-.bottom{
+.meme--bottom{
   bottom: 0;
- }
+}

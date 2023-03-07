@@ -1,9 +1,9 @@
-export function Meme({img, topText, bottomText}){
+export function Meme({randomImg, topText, bottomText}){
     return(
-        <div className="meme">
-            <img className="meme-img" src={img}/>
-            <h2 className="meme-text top">{topText}</h2>
-            <h2 className="meme-text bottom">{bottomText}</h2>
-        </div>
+        <section className="meme">
+            <img className="meme__img" src={randomImg}/>
+            <h2 className="meme__text meme--top">{topText}</h2>
+            <h2 className="meme__text meme--bottom">{bottomText}</h2>
+        </section>
     );
 }

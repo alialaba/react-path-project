@@ -1,5 +1,8 @@
-export function Button(props){
+
+export function Button({onClick, text}){
+   
+
     return(
-        <button className="btn">{props.text}</button>
+        <button onClick={onClick} className="btn">{text}</button>
     );
 }
